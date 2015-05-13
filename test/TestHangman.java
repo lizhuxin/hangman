@@ -20,7 +20,12 @@ public class TestHangman {
 	
 	private void runAutomatically() throws FileNotFoundException {
 		BufferedReader inputStream = new BufferedReader(new FileReader(new File(INPUT_FILE)));
-		hangman.getConsole().setInputScript(inputStream);
+		hangman.getConsole().setInputScript(inputStream); 
+	
+		/* getConsole() returns inputStream
+		 * setInputScript() 
+		 */
+	
 	}
 	
 	private char getAnIncorrectGuess() {
@@ -142,21 +147,22 @@ public class TestHangman {
 	
 	@Test
 	public void testLosing() throws FileNotFoundException {
-		char guess = getAnIncorrectGuess();
+		char guess = getAnIncorrectGuess(); //gets first char in alphabetical order not in the word
 		
-		for(int i = 0; i < wordToGuess.length(); i++) {
+		for(int i = 0; i < wordToGuess.length(); i++) { //prints word.length chars on separate lines
 			outputStream.println(guess);
+			//wordToGuess = wordToGuess + guess;
 		}
 		
-		outputStream.close();
-		runAutomatically();
+		outputStream.close(); //?
+		runAutomatically(); //uses printed chars to run program
 		
 		for(int i = 0; i < wordToGuess.length(); i++) {
 			hangman.step();
 		}
 		
 		assertEquals("Should have 0 guesses remaining after losing", 0, hangman.getGuessCounter());
-		assertTrue("Hidden word should not be revelaed after losing", 
+		assertTrue("Hidden word should not be revealed after losing", 
 				!(hangman.getHiddenWord().equalsIgnoreCase(wordToGuess)));
 	}
 	
