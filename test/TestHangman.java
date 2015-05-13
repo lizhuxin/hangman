@@ -146,10 +146,10 @@ public class TestHangman {
 	}
 	
 	@Test
-	public void testLosing() throws FileNotFoundException {
+	public void testLosing() throws FileNotFoundException { //keeps restarting hangman 2 guesses early
 		char guess = getAnIncorrectGuess(); //gets first char in alphabetical order not in the word
 		
-		for(int i = 0; i < wordToGuess.length(); i++) { //prints word.length chars on separate lines
+		for(int i = 0; i < 8; i++) { //prints word.length chars on separate lines
 			outputStream.println(guess);
 			//wordToGuess = wordToGuess + guess;
 		}
@@ -157,7 +157,7 @@ public class TestHangman {
 		outputStream.close(); //?
 		runAutomatically(); //uses printed chars to run program
 		
-		for(int i = 0; i < wordToGuess.length(); i++) {
+		for(int i = 0; i < 8; i++) {
 			hangman.step();
 		}
 		
@@ -165,7 +165,7 @@ public class TestHangman {
 		assertTrue("Hidden word should not be revealed after losing", 
 				!(hangman.getHiddenWord().equalsIgnoreCase(wordToGuess)));
 	}
-	
+	//?
 	@Test
 	public void testWinning() throws FileNotFoundException {
 		for(int i = 0; i < wordToGuess.length(); i++) {
