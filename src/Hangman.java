@@ -10,6 +10,7 @@ import acm.program.*;
 import acm.util.*;
 
 import java.awt.*;
+import java.util.*;
 
 public class Hangman extends ConsoleProgram {
 
@@ -18,6 +19,8 @@ public class Hangman extends ConsoleProgram {
 	private HangmanCanvas canvas;
 	
 	private RandomGenerator rgen = RandomGenerator.getInstance();
+	
+	private ArrayList<char> loggedGuesses;
 	
 	public static final int MAX_GUESSES = 8;
 

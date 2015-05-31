@@ -57,7 +57,7 @@ public class HangmanCanvas extends GCanvas {
 		add(incorrectLetters);
 		//checks how many incorrect guessed letters there are 
 		//and draws the next appropriate body part of the hangman
-		switch (incorrectGuesses.length()) {
+		switch (incorrectGuesses.length()) { 
 			default:
 				drawRightFoot();
 			case 7:
